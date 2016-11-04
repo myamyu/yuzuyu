@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css?family=Cormorant+Garamond');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+a {
+	color: hsl(80, 24%, 52%);
+}
+
+a:visited {
+	color: hsl(80, 24%, 60%);
+}
+
+a:hover {
+	color: hsl(200, 24%, 52%);
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	background-color: hsl(33, 27%, 85%);
+	color: hsl(0, 0%, 45%);
+	font-family: 'Cormorant Garamond', Verdana, "游明朝", "Yu Mincho", YuMincho, serif;
+	font-size: 14pt;
+	line-height: 1.6;
+}
+
+body > header {
+	display: block;
+	padding-top: 10vh;
+	height: 40vh;
+	text-align: center;
+	background-color: hsl(42, 23%, 51%);
+	color: hsl(33, 27%, 85%);
+}
+
+main {
+	display: block;
+	width: 80vw;
+	margin: 2rem auto;
+	border: solid 1px hsl(1, 30%, 50%);
+	border-radius: 4px;
+}
+
+main > article > section {
+	background-image: url(yuzuyu.jpg);
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-clip: border-box;
+	padding: 2rem;
+	margin: 1rem auto;
+	width: 76vw;
+}
+
+body > footer {
+
+}
