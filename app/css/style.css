@@ -3,7 +3,6 @@
 * {
 	margin: 0;
 	padding: 0;
-	box-sizing: border-box;
 }
 
 a {
@@ -30,31 +29,107 @@ body {
 
 body > header {
 	display: block;
-	padding-top: 10vh;
-	height: 40vh;
+	padding-top: 14vh;
+	height: 46vh;
 	text-align: center;
 	background-color: hsl(42, 23%, 51%);
 	color: hsl(33, 27%, 85%);
+	box-sizing: border-box;
 }
 
 main {
 	display: block;
-	width: 80vw;
-	margin: 2rem auto;
-	border: solid 1px hsl(1, 30%, 50%);
-	border-radius: 4px;
+	width: 100%;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+main > article > header {
+	margin: 2rem;
+}
+
+main > article > section,
+.content-wrap::before {
+	background-image: url(yuzuyu.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
 }
 
 main > article > section {
-	background-image: url(yuzuyu.jpg);
-	background-size: contain;
-	background-repeat: no-repeat;
-	background-clip: border-box;
+	position: relative;
+	box-sizing: border-box;
+	margin-top: 2rem;
+}
+.content-wrap::before{
+	content: "";
+	position: absolute;
+	background-clip: content-box;
+	width: 100%;
+	height: 100%;
 	padding: 2rem;
-	margin: 1rem auto;
-	width: 76vw;
+	top: 0;
+	left: 0;
+	filter: blur(8px);
+	box-sizing: border-box;
+}
+.content-wrap {
+	padding: 2rem;
+	position: relative;
+	box-sizing: border-box;
+}
+.content {
+	padding: 2rem;
+	z-index: 30;
+	position: relative;
+	margin: 0;
+	box-sizing: border-box;
+	border: solid 1px hsl(33, 27%, 85%);
+	border-radius: 4px;
+	background: hsla(33, 27%, 85%, 0.3);
+}
+
+blockquote {
+	font-family: Verdana, "游ゴシック", "Yu Gothic", YuGothic, sans-serif;
+	font-size: 86%;
+	margin: 1rem 2rem;
+	padding-left: 1em;
+	box-sizing: border-box;
+	border-style: solid;
+	border-width: 0;
+	border-left-width: 2px;
+	border-color: hsl(320, 24%, 52%);
+}
+
+.quote-cite {
+	margin-top: -1em;
+	margin-bottom: 1em;
+	text-align: right;
+	font-style: italic;
+}
+
+.quote-cite::before {
+	content: "--------------------------------------------------------";
+	font-family: Verdana, sans-serif;
+	letter-spacing: -0.2em;
+	margin-right: 4px;
 }
 
 body > footer {
+	margin: 0;
+	font-size: 80%;
+	width: 100%;
+	background-color: hsl(33, 27%, 90%);
+}
 
+body > footer > dl {
+	width: 80vw;
+	display: table;
+	margin: 0 auto;
+	padding: 2rem 0;
+}
+
+body > footer > dl > dt,
+body > footer > dl > dd {
+	display: table-cell;
 }
