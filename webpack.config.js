@@ -1,6 +1,7 @@
 var webpack = require('webpack');
 
 module.exports = {
+	cache: true,
 	entry: './src/yuzuyu.js',
 	output: {
 		path: __dirname + '/app/dist/',
@@ -13,7 +14,6 @@ module.exports = {
 				exclude: /node_modules/,
 				loader: 'riotjs',
 				query: {
-					template: 'pug',
 					type: 'babel'
 				}
 			}
@@ -22,12 +22,15 @@ module.exports = {
 			{
 				test: /\.js$|\.tag$/,
 				exclude: /node_modules/,
-				loader: 'babel'
+				loaders: ['babel']
 			},
-			{ test: /\.css$/, loader: "style!css" },
+			{ 
+				test: /\.css$/, 
+				loaders: ['style', 'css', 'autoprefixer'] 
+			},
 			{
 				test: /\.scss$/,
-				loaders: ["style", "css", "sass"]
+				loaders: ['style', 'css', 'autoprefixer', 'sass']
 			}
 		]
 	},
