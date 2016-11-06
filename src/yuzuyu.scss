@@ -52,17 +52,26 @@ $yuzu-size: 120px;
 // アニメーション部分
 $fall-duration: 700;
 .yuzu {
-	animation-name: yuzu-fall, yuzu-puka;
-	animation-duration: #{$fall-duration}ms, 4s;
-	animation-timing-function: cubic-bezier(.4,0,1,1),cubic-bezier(0.55, 1.6, 0.57, -0.15);
-	animation-iteration-count: 1, infinite;
+	animation-name: fade-in, yuzu-fall, yuzu-puka;
+	animation-duration: 200ms, #{$fall-duration}ms, 4s;
+	animation-timing-function: linear, cubic-bezier(.4,0,1,1), cubic-bezier(0.55, 1.6, 0.57, -0.15);
+	animation-iteration-count: 1, 1, infinite;
 	animation-direction: alternate;
 }
 
 @for $i from 1 through 40 {
 	$delay: random(5000);
 	.yuzu-anime-#{$i} {
-		animation-delay: #{$delay}ms, #{$fall-duration + $delay + 300}ms;
+		animation-delay: #{$delay}ms, #{$delay}ms, #{$fall-duration + $delay + 300}ms;
+	}
+}
+
+@keyframes fade-in {
+	0% {
+		opacity: 0;
+	}
+	99%, 100% {
+		opacity: 1;
 	}
 }
 
