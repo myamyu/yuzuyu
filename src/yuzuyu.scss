@@ -1,0 +1,85 @@
+#myamyu-yuzuyu {
+	background-color: transparent;
+}
+
+$yuzu-size: 120px;
+.yuzu {
+	position: fixed;
+	z-index: 9999;
+	top: 100vh;
+	display: block;
+	box-sizing: border-box;
+	background-color: hsl(60, 100%, 73%);
+	border-radius: 50%;
+	width: $yuzu-size;
+	height: $yuzu-size;
+	box-shadow: 30px 30px 16px hsla(0, 0%, 0%, 0.2);
+	&::before, &::after {
+		content: "";
+		border-radius: 50%;
+		box-sizing: border-box;
+		position: absolute;
+	}
+	&::before {
+		background-color: transparent;
+		width: $yuzu-size;
+		height: $yuzu-size;
+		$zure: 16px;
+		bottom: $zure;
+		right: $zure;
+		box-shadow: $zure $zure 12px hsla(56, 81%, 65%, 0.4);
+	}
+	&::after {
+		background-color: hsla(85, 60%, 56%, 0.4);
+		$size: 8px;
+		width: $size;
+		height: $size;
+		top: 20px;
+		left: 40%;
+		box-shadow: 1px 1px 1px hsla(85, 40%, 16%, 0.2);
+	}
+}
+@for $i from 1 through 40 {
+	.yuzu-posi-#{$i} {
+		@if $i % 2 == 0 {
+			left: #{random(50)}vw;
+		} @else {
+			right: #{random(50)}vw;
+		}
+	}
+}
+
+// アニメーション部分
+$fall-duration: 700;
+.yuzu {
+	animation-name: yuzu-fall, yuzu-puka;
+	animation-duration: #{$fall-duration}ms, 4s;
+	animation-timing-function: cubic-bezier(.4,0,1,1),cubic-bezier(0.55, 1.6, 0.57, -0.15);
+	animation-iteration-count: 1, infinite;
+	animation-direction: alternate;
+}
+
+@for $i from 1 through 40 {
+	$delay: random(5000);
+	.yuzu-anime-#{$i} {
+		animation-delay: #{$delay}ms, #{$fall-duration + $delay + 300}ms;
+	}
+}
+
+@keyframes yuzu-fall {
+	0% {
+		transform: translateY(-98vh);
+	}
+	99%, 100% {
+		transform: translateY(0vh);
+	}
+}
+
+@keyframes yuzu-puka {
+	0% {
+		top: 100vh;
+	}
+	99%, 100% {
+		top: calc(100vh - #{$yuzu-size/10 * 4});
+	}
+}
