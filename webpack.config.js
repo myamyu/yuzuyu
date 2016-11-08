@@ -22,7 +22,10 @@ module.exports = {
 			{
 				test: /\.js$|\.tag$/,
 				exclude: /node_modules/,
-				loaders: ['babel']
+				loader: 'babel',
+				query: {
+					presets: ['es2015-riot']
+				}
 			},
 			{ 
 				test: /\.css$/, 
@@ -35,12 +38,13 @@ module.exports = {
 		]
 	},
 	plugins: [
+		new webpack.optimize.AggressiveMergingPlugin(),
+		new webpack.optimize.DedupePlugin(),
 		new webpack.optimize.UglifyJsPlugin({
 			compress: {
 					warnings: false
 			}
 		}),
-		new webpack.optimize.DedupePlugin(),
 		new webpack.ProvidePlugin({
 			riot: 'riot'
 		})

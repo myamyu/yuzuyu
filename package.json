@@ -8,11 +8,6 @@
     "watch": "webpack -p -w",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "babel": {
-    "presets": [
-      "es2015-riot"
-    ]
-  },
   "author": "myamyu",
   "license": "ISC",
   "devDependencies": {
