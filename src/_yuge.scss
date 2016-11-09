@@ -1,1 +1,31 @@
+.yuge {
+	top: 100vh;
+	position: fixed;
+	background-color: transparent;
+	border-radius: 50%;
+	box-sizing: border-box;
+	&::before, &::after {
+		content: "";
+		display: block;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		box-sizing: border-box;
+		background-color: transparent;
+		border-radius: 50%;
+	}
+}
 
+.bottom-yuge-list > .yuge {
+	width: 80vw;
+	box-shadow: 0vw -20vh 80px hsla(0, 100%, 100%, 0.7);
+	transform: skew(-20deg, 0deg);
+	&::before {
+		box-shadow: 5vw -20vh 100px hsla(0, 40%, 100%, 0.6);
+		transform: skew(-20deg, 10deg);
+	}
+	&::after {
+		box-shadow: 3vw -20vh 60px hsla(0, 90%, 100%, 0.9);
+		transform: skew(-20deg, -5deg);
+	}
+}
