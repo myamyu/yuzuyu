@@ -11,5 +11,6 @@ if(!yuzuyuWrap){
 }
 
 riot.mount('#myamyu-yuzuyu', 'yuzuyu', {
-	fall_yuzu_count: (0|Math.random()*8)+4
+	fall_yuzu_count: (0|Math.random()*8)+4,
+	hokkori_yuge_count: (0|Math.random()*4)+4
 });

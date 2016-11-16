@@ -1,36 +1,80 @@
 .yuge {
-	top: 100vh;
 	position: fixed;
 	background-color: transparent;
 	border-radius: 50%;
-	box-sizing: border-box;
+	z-index: 9999;
 }
 
-@function bottom-yuge() {
-	@return #{random(50)}vw -#{5 + random(50)}vh #{160 + random(50)}px lighten(black, random(10) + 90%);
+@function yuge($max-top-vh: 100) {
+	@return #{random(50)}vw -#{random($max-top-vh)}vh #{160 + random(50)}px lighten(black, random(10) + 90%);
 }
 
 .bottom-yuge {
+	top: 100vh;
 	width: 40vw;
 	height: 10vh;
-	box-shadow: bottom-yuge(), bottom-yuge(), bottom-yuge(), bottom-yuge(), bottom-yuge(),
-							bottom-yuge(), bottom-yuge(), bottom-yuge(), bottom-yuge(), bottom-yuge(),
-							bottom-yuge(), bottom-yuge(), bottom-yuge(), bottom-yuge(), bottom-yuge(),
-							bottom-yuge(), bottom-yuge(), bottom-yuge(), bottom-yuge(), bottom-yuge();
+	opacity: 0.6;
+	box-shadow: yuge(60), yuge(60), yuge(60), yuge(60), yuge(60), yuge(60), yuge(60), yuge(60), yuge(60), yuge(60), 
+							yuge(60), yuge(60), yuge(60), yuge(60), yuge(60), yuge(60), yuge(60), yuge(60), yuge(60), yuge(60),
+							yuge(60), yuge(60), yuge(60), yuge(60), yuge(60), yuge(60), yuge(60), yuge(60), yuge(60), yuge(60);
 }
 
 .bottom-yuge {
 	animation-name: bottom-yuge-up;
-	animation-duration: 8s;
+	animation-duration: 12s;
 }
+
+.hokkori-yuge {
+	display: block;
+	opacity: 0;
+	animation-name: hokkori-yuge;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	box-shadow: yuge(100);
+}
+
+@for $i from 1 through 40 {
+	.hokkori-posi-#{$i} {
+		$size: 100 + random(100);
+		width: #{$size}px;
+		height: #{$size * 1.3}px;
+		top: #{100 + random(50)}vh;
+		@if $i % 2 == 0 {
+			left: #{random(50)}vw;
+		} @else {
+			right: #{random(50)}vw;
+		}
+	}
+	$delay: 5000 + random(3000);
+	.hokkori-anime-#{$i} {
+		animation-delay: #{$delay}ms;
+		animation-duration: #{5000 + random(10000)}ms;
+	}
+}
+
 
 @keyframes bottom-yuge-up {
 	0% {
 		opacity: 0;
-		transform: translateY(60vh);
+		transform: translateY(100vh);
 	}
 	99%, 100% {
-		opacity: 0.8;
+		opacity: 0.6;
 		transform: translateY(0vh);
+	}
+}
+
+@keyframes hokkori-yuge {
+	0% {
+		opacity: 0;
+		transform: translateY(0vh);
+	}
+	50% {
+		opacity: 0.8;
+		transform: translateY(-50vh);
+	}
+	99%, 100% {
+		opacity: 0;
+		transform: translateY(-100vh);
 	}
 }
