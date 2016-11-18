@@ -1,4 +1,6 @@
 $yuzu-size: 120px;
+$fall-duration: 700;
+
 .yuzu {
 	position: fixed;
 	z-index: 9999;
@@ -35,7 +37,8 @@ $yuzu-size: 120px;
 		box-shadow: 1px 1px 1px hsla(85, 40%, 16%, 0.2);
 	}
 }
-@for $i from 1 through 40 {
+
+@for $i from 1 through 20 {
 	.yuzu-posi-#{$i} {
 		@if $i % 2 == 0 {
 			left: #{random(50)}vw;
@@ -43,23 +46,18 @@ $yuzu-size: 120px;
 			right: #{random(50)}vw;
 		}
 	}
+	$delay: random(5000);
+	.yuzu-anime-#{$i} {
+		animation-delay: #{$delay}ms, #{$delay}ms, #{$fall-duration + $delay + 300}ms;
+	}
 }
 
-// アニメーション部分
-$fall-duration: 700;
 .yuzu {
 	animation-name: fade-in, yuzu-fall, yuzu-puka;
 	animation-duration: 200ms, #{$fall-duration}ms, 4s;
 	animation-timing-function: linear, cubic-bezier(.4,0,1,1), cubic-bezier(0.55, 1.6, 0.57, -0.15);
 	animation-iteration-count: 1, 1, infinite;
 	animation-direction: alternate;
-}
-
-@for $i from 1 through 40 {
-	$delay: random(5000);
-	.yuzu-anime-#{$i} {
-		animation-delay: #{$delay}ms, #{$delay}ms, #{$fall-duration + $delay + 300}ms;
-	}
 }
 
 @keyframes fade-in {

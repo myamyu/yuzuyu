@@ -8,14 +8,14 @@
 	</ul>
 	<script>
 		this.fall_yuzu_count = opts.fall_yuzu_count || 4
-		this.hokkori_yuge_count = opts.hokkori_yuge_count || 10
+		this.hokkori_yuge_count = opts.hokkori_yuge_count || 6
 
 		let makeRandomList = (count) => {
 			let list = []
 			for(let i = 0; i < count; i++) {
 				list.push({
-					positionNo: (0|Math.random()*40) + 1,
-					animeNo: (0|Math.random()*40) + 1
+					positionNo: (0|Math.random()*20) + 1,
+					animeNo: (0|Math.random()*20) + 1
 				})
 			}
 			return list

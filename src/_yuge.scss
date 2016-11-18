@@ -14,9 +14,9 @@
 	width: 40vw;
 	height: 10vh;
 	opacity: 0.6;
-	box-shadow: yuge(60), yuge(60), yuge(60), yuge(60), yuge(60), yuge(60), yuge(60), yuge(60), yuge(60), yuge(60), 
-							yuge(60), yuge(60), yuge(60), yuge(60), yuge(60), yuge(60), yuge(60), yuge(60), yuge(60), yuge(60),
-							yuge(60), yuge(60), yuge(60), yuge(60), yuge(60), yuge(60), yuge(60), yuge(60), yuge(60), yuge(60);
+	box-shadow: yuge(60), yuge(60), yuge(60), yuge(60), yuge(60), 
+							yuge(60), yuge(60), yuge(60), yuge(60), yuge(60), 
+							yuge(60), yuge(60), yuge(60), yuge(60), yuge(60);
 }
 
 .bottom-yuge {
@@ -33,7 +33,7 @@
 	box-shadow: yuge(100);
 }
 
-@for $i from 1 through 40 {
+@for $i from 1 through 20 {
 	.hokkori-posi-#{$i} {
 		$size: 100 + random(100);
 		width: #{$size}px;
