@@ -4,7 +4,7 @@ module.exports = {
 	cache: true,
 	entry: './src/yuzuyu.js',
 	output: {
-		path: __dirname + '/app/dist/',
+		path: __dirname + '/docs/dist/',
 		filename: 'yuzuyu.js'
 	},
 	module: {
