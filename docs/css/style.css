@@ -125,6 +125,13 @@ body > footer {
 	background-color: hsl(33, 27%, 90%);
 }
 
+body > footer > .note {
+	text-align: right;
+	line-height: 1.4;
+	padding-top: 20px;
+	font-style: italic;
+}
+
 body > footer > dl {
 	width: 80vw;
 	display: table;
