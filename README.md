@@ -8,10 +8,7 @@
 ブックマークレット
 -------------------
 
-### ↓ブックマークバーにドラッグ
-<a href="javascript:!function(){var d=document,h=d.getElementsByTagName('head')[0],s=d.createElement('script');s.src='https://myamyu.github.io/yuzuyu/dist/yuzuyu.js';h.appendChild(s);}()">ゆず湯</a>
-
-### 上手く行かなければ↓をコピーしてブックマークに貼り付け
+### ↓をコピーしてブックマークに追加
 ```
 javascript:!function(){var d=document,h=d.getElementsByTagName('head')[0],s=d.createElement('script');s.src='https://myamyu.github.io/yuzuyu/dist/yuzuyu.js';h.appendChild(s);}()
 ```
